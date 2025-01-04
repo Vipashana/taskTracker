@@ -19,8 +19,6 @@ public class SpringSecurityConfiguration {
 
 	@Bean
 	public InMemoryUserDetailsManager createUserDetailsManager() {
-
-		
 		UserDetails userDetails1 = createNewUser("Vipashana", "dummy");
 		UserDetails userDetails2 = createNewUser("Oju", "dummydummy");
 		
@@ -28,15 +26,10 @@ public class SpringSecurityConfiguration {
 	}
 
 	private UserDetails createNewUser(String username, String password) {
-		Function<String, String> passwordEncoder
-		=input-> passwordEncoder().encode(input);
+		Function<String, String> passwordEncoder = input-> passwordEncoder().encode(input);
 		
-		UserDetails userDetails=User.builder()
-									.passwordEncoder(passwordEncoder)
-									.username(username)
-									.password(password)
-									.roles("USER","ADMIN")
-									.build();
+	UserDetails userDetails=User.builder().passwordEncoder(passwordEncoder).username(username)
+		.password(password).roles("USER","ADMIN").build();
 		return userDetails;
 	}
 	
@@ -47,9 +40,8 @@ public class SpringSecurityConfiguration {
 	
 	@Bean
 	public SecurityFilterChain filterChain(HttpSecurity http)throws Exception {
-		//Protect all url y asking for authorization
-		http.authorizeHttpRequests(
-				auth->auth.anyRequest().authenticated());
+		//Protect all url by asking for authorization
+		http.authorizeHttpRequests(auth->auth.anyRequest().authenticated());
 		//Show authorization form
 		http.formLogin(withDefaults());
 		
