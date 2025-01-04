@@ -11,14 +11,3 @@ public class MyFirstWebAppApplication {
 	}
 
 }
-
-/* Project Dependencies:
- * Spring Boot DevTools
- * Spring Web
- * datePicker 
- * Spring validation
- * tomcat-embed-jasper:provides support for .jsp file rendering
- * Bootstrap
- * Jquery:jQuery is a JavaScript library designed to simplify HTML DOM tree traversal and manipulation, as well as event handling, CSS animations, and Ajax.
- * For Database Connection:spring-boot-starter-data-jpa & h2database
- * */
