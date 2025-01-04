@@ -59,8 +59,7 @@ public class TodoControllerJpa {
 		todo.setUsername(username);
 		todoRepository.save(todo);
 		
-		//redirect otherwise the again new page will be loaded of list-todos
-		//redirect will keep previous data and will add new below
+		//redirect will keep previous data instead of reloading and loosing data
 		return "redirect:list-todos";
 	}
 	
